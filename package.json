@@ -1,0 +1,12 @@
+{
+	"name": "blog-template",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "browser-sync start --server ./ --files ./"
+	},
+	"author": "Ange Chierchia @nighcrawl",
+	"devDependencies": {
+		"browser-sync": "^2.14.0"
+	}
+}
