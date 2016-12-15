@@ -6,12 +6,15 @@
 
 .site-header {
 	@include border-radius(0 0 4px 4px);
-	background-color: tint($silver, 70%);
+	background-color: tint($light-background, 70%);
 	padding: 1em;
+	display: flex;
+	align-items: center;
 
 	.logo {
 		display: block;
 		color: $black;
+		margin-right: 3em;
 		text-decoration: none;
 	}
 }
@@ -27,4 +30,29 @@
 
 .site-tagline {
 	font-size: $base-font-size * .875;
+}
+
+.site-nav {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	.nav-item {
+		margin-left: .5em;
+		margin-right: .5em;
+	}
+
+	a {
+		@include border-radius(3px);
+		color: $font-color;
+		padding: .25em .5em;
+		text-decoration: none;
+		@include single-transition(all, 200ms, ease-in-out);
+
+		&:hover {
+			background-color: $gray;
+			color: tint($light-background, 70%);
+		}
+	}
 }

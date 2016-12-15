@@ -418,11 +418,17 @@ th {
   src: local("Fira Mono"), local("FiraMono"), url(http://fonts.gstatic.com/s/firamono/v3/SlRWfq1zeqXiYWAN-lnG-pBw1xU1rKptJj_0jans920.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: #222;
+  color: #111;
   font-family: "Fira Sans", sans-serif;
   font-size: 18px;
   line-height: 1.6;
@@ -487,6 +493,9 @@ textarea {
   resize: vertical;
 }
 
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
 .wrapper {
   max-width: 50em;
   margin-left: auto;
@@ -499,10 +508,13 @@ textarea {
   border-radius: 0 0 4px 4px;
   background-color: whitesmoke;
   padding: 1em;
+  display: flex;
+  align-items: center;
 }
 .site-header .logo {
   display: block;
   color: #111;
+  margin-right: 3em;
   text-decoration: none;
 }
 
@@ -517,4 +529,31 @@ textarea {
 
 .site-tagline {
   font-size: 15.75px;
+}
+
+.site-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav .nav-item {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+.site-nav a {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #111;
+  padding: .25em .5em;
+  text-decoration: none;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.site-nav a:hover {
+  background-color: #aaa;
+  color: whitesmoke;
 }
