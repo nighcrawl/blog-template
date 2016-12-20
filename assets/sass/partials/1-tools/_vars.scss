@@ -33,7 +33,9 @@ $black:  #111;
 //
 
 $base-font-face: 'Fira Sans', sans-serif;
+$code-font-face: 'Fira Mono', monospace;
 $base-font-size: 18px;
 $base-line-height: 1.6;
 $font-color: $black;
 $light-background: $silver;
+$accent-color: shade($teal, 15%);

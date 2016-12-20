@@ -7,15 +7,25 @@
 .site-header {
 	@include border-radius(0 0 4px 4px);
 	background-color: tint($light-background, 70%);
-	padding: 1em;
+	padding: 1em 1.5em;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	@media only screen and (min-width: 700px) {
+		justify-content: space-between;
+	}
 
 	.logo {
 		display: block;
-		color: $black;
-		margin-right: 3em;
+		color: $font-color;
 		text-decoration: none;
+		text-align: center;
+
+		@media only screen and (min-width: 33.7778em) {
+			text-align: left;
+		}
 	}
 }
 
@@ -51,8 +61,22 @@
 		@include single-transition(all, 200ms, ease-in-out);
 
 		&:hover {
-			background-color: $gray;
+			background-color: $accent-color;
 			color: tint($light-background, 70%);
 		}
+	}
+}
+
+.main-content {
+	margin-top: 1em;
+	padding: 1em 1.5em;
+
+	pre {
+		@include border-radius(3px);
+		background-color: $font-color;
+		color: tint($light-background, 70%);
+		max-width: 100%;
+		padding: 1em 1.5em;
+		white-space: pre-wrap;
 	}
 }

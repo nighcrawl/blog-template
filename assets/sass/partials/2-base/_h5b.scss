@@ -79,3 +79,11 @@ fieldset {
 textarea {
     resize: vertical;
 }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: $code-font-face;
+  font-size: .875em;
+}
