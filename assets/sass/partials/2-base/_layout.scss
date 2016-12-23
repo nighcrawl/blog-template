@@ -70,13 +70,19 @@
 .main-content {
 	margin-top: 1em;
 	padding: 1em 1.5em;
-
-	pre {
-		@include border-radius(3px);
-		background-color: $font-color;
-		color: tint($light-background, 70%);
-		max-width: 100%;
-		padding: 1em 1.5em;
-		white-space: pre-wrap;
-	}
 }
+
+.post-title {
+	font-size: 2em;
+}
+
+pre {
+	@include border-radius(3px);
+	background-color: $font-color;
+	color: tint($light-background, 70%);
+	max-width: 100%;
+	padding: 1em 1.5em;
+	white-space: pre-wrap;
+}
+
+

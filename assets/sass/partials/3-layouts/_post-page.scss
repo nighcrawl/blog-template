@@ -1,0 +1,9 @@
+/*
+ * Single post layout
+ */
+
+.post-page .post {
+	border-bottom: 1px solid tint($light-background, 70%);
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
