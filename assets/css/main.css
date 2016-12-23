@@ -517,7 +517,7 @@ samp {
   flex-wrap: wrap;
   justify-content: center;
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 710px) {
   .site-header {
     justify-content: space-between;
   }
@@ -528,7 +528,7 @@ samp {
   text-decoration: none;
   text-align: center;
 }
-@media only screen and (min-width: 33.7778em) {
+@media only screen and (min-width: 710px) {
   .site-header .logo {
     text-align: left;
   }
@@ -577,6 +577,17 @@ samp {
 .main-content {
   margin-top: 1em;
   padding: 1em 1.5em;
+}
+.main-content a {
+  color: #30adad;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.main-content a:hover {
+  color: #111;
+  text-decoration: none;
 }
 
 .post-title {
@@ -630,4 +641,51 @@ pre {
   border-bottom: 1px solid whitesmoke;
   margin-bottom: 1em;
   padding-bottom: 1em;
+}
+
+.post-page .share {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding-left: 0;
+}
+.post-page .share li {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.share-icon--facebook {
+  background-color: #e2e2e2;
+  -webkit-mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
+  mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+.share-icon--facebook:hover {
+  background-color: #004682;
+}
+
+.share-icon--twitter {
+  background-color: #e2e2e2;
+  -webkit-mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
+  mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+.share-icon--twitter:hover {
+  background-color: #4d9ee4;
+}
+
+.share-icon--facebook, .share-icon--twitter {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
+  text-indent: -999em;
+  width: 48px;
+  height: 48px;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }

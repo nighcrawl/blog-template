@@ -7,3 +7,55 @@
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 }
+
+.post-page .share {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+	padding-left: 0;
+
+	li {
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+}
+
+.share-icon--facebook {
+	@extend %share-icon;
+	background-color: tint($light-background, 15%);
+	-webkit-mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
+	mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
+	mask-size: cover;
+	-webkit-mask-size: cover;	
+
+	//background-image: url(../img/facebook-icon.svg);
+
+	&:hover {
+		background-color: shade($blue, 40%);
+	}
+}
+.share-icon--twitter {
+	@extend %share-icon;
+	background-color: tint($light-background, 15%);
+	-webkit-mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
+	mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
+	mask-size: cover;
+	-webkit-mask-size: cover;	
+
+	//background-image: url(../img/twitter-icon.svg);
+
+	&:hover {
+		background-color: tint($blue, 30%);
+	}
+}
+
+%share-icon {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: block;
+	text-indent: -999em;
+	width: 48px;
+	height: 48px;
+	@include single-transition(all, 200ms, ease-in-out);
+}
