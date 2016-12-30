@@ -591,7 +591,10 @@ samp {
 }
 
 .post-title {
+  color: initial;
   font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 pre {
