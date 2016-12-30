@@ -12,44 +12,41 @@
 	display: flex;
 	justify-content: center;
 	list-style-type: none;
+	margin-bottom: 2em;
+	margin-top: 2em;
 	padding-left: 0;
 
 	li {
-		margin-left: 1em;
-		margin-right: 1em;
+		margin-left: .5em;
+		margin-right: .5em;
 	}
 }
 
 .share-icon--facebook {
 	@extend %share-icon;
-	background-color: tint($light-background, 15%);
 	-webkit-mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
 	mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
 	mask-size: cover;
 	-webkit-mask-size: cover;	
 
-	//background-image: url(../img/facebook-icon.svg);
-
 	&:hover {
-		background-color: shade($blue, 40%);
+		background-color: $facebook;
 	}
 }
 .share-icon--twitter {
 	@extend %share-icon;
-	background-color: tint($light-background, 15%);
 	-webkit-mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
 	mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
 	mask-size: cover;
-	-webkit-mask-size: cover;	
-
-	//background-image: url(../img/twitter-icon.svg);
+	-webkit-mask-size: cover;
 
 	&:hover {
-		background-color: tint($blue, 30%);
+		background-color: $twitter;
 	}
 }
 
 %share-icon {
+	background-color: tint($light-background, 15%);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;

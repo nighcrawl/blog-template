@@ -1,12 +1,12 @@
 .wrapper {
-	max-width: 50em;
+	max-width: 42em;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .site-header {
 	@include border-radius(0 0 4px 4px);
-	background-color: tint($light-background, 70%);
+	background-color: tint($light-background, 80%);
 	padding: 1em 1.5em;
 	display: flex;
 	align-items: center;
@@ -56,7 +56,7 @@
 	a {
 		@include border-radius(3px);
 		color: $font-color;
-		padding: .25em .5em;
+		padding: .25em .65em;
 		text-decoration: none;
 		@include single-transition(all, 200ms, ease-in-out);
 
@@ -90,6 +90,8 @@ pre {
 	@include border-radius(3px);
 	background-color: $font-color;
 	color: tint($light-background, 70%);
+	margin-left: -1.5em;
+	margin-right: -1.5em;
 	max-width: 100%;
 	padding: 1em 1.5em;
 	white-space: pre-wrap;
