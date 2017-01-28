@@ -1,0 +1,14 @@
+<header class="site-header">
+    <a href="{{ "/" | relative_url}}" class="logo">
+        <p class="site-title">Ange Chierchia</p>
+        <span class="site-tagline">Webdesigner & développeur front-end</span>
+    </a>
+    <ul class="site-nav">
+        <li class="nav-item"><a href="{{ "/" | relative_url}}">blog</a></li>
+        {% for nav  in site.pages %}
+            {% if nav.title && nav.url %}
+            <li class="nav-item"><a href="{{ nav.url }}">{{ nav.title | downcase | escape }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</header>

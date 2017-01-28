@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/git,osx,grunt,node,sass
+# Created by https://www.gitignore.io/api/git,osx,grunt,node,sass,jekyll
 
 ### Git ###
 *.orig
@@ -82,3 +82,8 @@ jspm_packages
 ### Sass ###
 .sass-cache/
 *.css.map
+
+### Jekyll ###
+_site/
+_deploy/
+.jekyll-metadata
