@@ -114,4 +114,22 @@ pre {
 	}
 }
 
+.pagination{
+	display: flex;
+	margin: 1em 0;
+}
 
+.pagination-link {
+	display: block;
+	padding: 1em;
+	text-align: center;
+	width: 50%;
+
+	&--next {
+		flex: 1;
+	}
+
+	&--previous {
+		flex: 1;
+	}
+}

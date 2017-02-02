@@ -3,7 +3,7 @@ layout: default
 body_class: "home-page"
 ---
 <ul class="posts-list">
-	{% for post in site.posts %}
+	{% for post in paginator.posts %}
     <li class="post-summary {% if post.format and post.format == "link" and post.link != "" %}post-format--link{% endif %}">
         {% if post.format and post.format == "link" and post.link != "" %}
         <a href="{{ post.url }}" class="post-link--permalink">{{ post.url }}</a>
@@ -21,3 +21,16 @@ body_class: "home-page"
     </li>
     {% endfor %}
 </ul>
+
+<!-- Pagination links -->
+<nav class="pagination">
+    <!-- If we have a previous page, we show a link to it -->
+    {% if paginator.previous_page %}
+      <a class="pagination-link pagination-link--previous" href="{{ paginator.previous_page_path }}">Articles plus récents</a>
+    {% endif %}
+
+    <!-- If we have a next page, we show a link to it -->
+    {% if paginator.next_page %}
+      <a class="pagination-link pagination-link--next" href="{{ paginator.next_page_path }}">Articles plus anciens</a>
+    {% endif %}
+</nav>
