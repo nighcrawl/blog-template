@@ -45,8 +45,16 @@
 .site-nav {
 	display: flex;
 	list-style-type: none;
-	margin: 0;
+	margin: 1em -1.5em 0;
 	padding: 0;
+
+	@media screen and (min-width: 598px) { 
+		margin: 1em 0 0;
+	}
+
+	@media screen and (min-width: 726px) {
+		margin: 0;
+	}
 
 	.nav-item {
 		margin-left: .5em;
