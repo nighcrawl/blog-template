@@ -589,6 +589,13 @@ samp {
   color: #111;
   text-decoration: none;
 }
+.main-content img {
+  max-width: 100%;
+}
+.main-content img.aligncenter {
+  display: block;
+  margin: auto;
+}
 
 .post-title {
   color: initial;
@@ -623,7 +630,7 @@ pre {
 
 .pagination {
   display: flex;
-  margin: 1em 0;
+  margin: 1em 0 0;
 }
 
 .pagination-link {
@@ -637,6 +644,29 @@ pre {
 }
 .pagination-link--previous {
   flex: 1;
+}
+
+.site-footer {
+  border-top: 1px solid whitesmoke;
+  font-size: .875em;
+  margin-top: 0;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0;
+}
+.site-footer a {
+  color: #30adad;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.site-footer a:hover {
+  color: #111;
+  text-decoration: none;
 }
 
 /* ==========================================================================
@@ -681,7 +711,7 @@ pre {
   display: flex;
   justify-content: center;
   list-style-type: none;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   margin-top: 2em;
   padding-left: 0;
 }
@@ -769,8 +799,13 @@ pre {
   margin: 0 -1.5em;
   margin-bottom: 1.5em;
   width: calc(100% + 3em);
-  max-height: 510px;
+  max-height: 200px;
   overflow: hidden;
+}
+@media only screen and (min-width: 710px) {
+  .main-content .thumbnail {
+    max-height: 510px;
+  }
 }
 .main-content .thumbnail img {
   display: block;
