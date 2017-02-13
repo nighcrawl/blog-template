@@ -38,3 +38,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - assets/sass
+
+theme: jekyll-theme-minimal
