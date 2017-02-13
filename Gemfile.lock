@@ -23,8 +23,6 @@ GEM
       jekyll (~> 3.1)
       sinatra (~> 1.4)
       sinatra-contrib (~> 1.4)
-    jekyll-feed (0.8.0)
-      jekyll (~> 3.3)
     jekyll-last-modified-at (0.3.4)
       jekyll
     jekyll-paginate (1.1.0)
@@ -76,7 +74,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 3.3.0)
   jekyll-admin
-  jekyll-feed (~> 0.6)
   jekyll-last-modified-at
   jekyll-paginate
   jekyll-sitemap
