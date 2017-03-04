@@ -57,16 +57,25 @@
 	}
 
 	.nav-item {
-		margin-left: .5em;
-		margin-right: .5em;
+		margin-left: 0;
+		margin-right: 0;
+
+		@media screen and (min-width: 726px) {
+			margin-left: .5em;
+			margin-right: .5em;
+		}
 	}
 
 	a {
 		@include border-radius(3px);
 		color: $font-color;
-		padding: .25em .65em;
+		padding: .25em .5em;
 		text-decoration: none;
 		@include single-transition(all, 200ms, ease-in-out);
+
+		@media screen and (min-width: 598px) {
+			padding: .25em .65em;
+		}
 
 		&:hover {
 			background-color: $accent-color;

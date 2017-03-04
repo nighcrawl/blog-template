@@ -564,20 +564,31 @@ samp {
   }
 }
 .site-nav .nav-item {
-  margin-left: .5em;
-  margin-right: .5em;
+  margin-left: 0;
+  margin-right: 0;
+}
+@media screen and (min-width: 726px) {
+  .site-nav .nav-item {
+    margin-left: .5em;
+    margin-right: .5em;
+  }
 }
 .site-nav a {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   color: #111;
-  padding: .25em .65em;
+  padding: .25em .5em;
   text-decoration: none;
   -moz-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+}
+@media screen and (min-width: 598px) {
+  .site-nav a {
+    padding: .25em .65em;
+  }
 }
 .site-nav a:hover {
   background-color: #30adad;
