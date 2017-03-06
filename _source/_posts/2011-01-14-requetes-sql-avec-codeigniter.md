@@ -81,7 +81,7 @@ Il est aussi possible d&rsquo;instancier deux connexion en faisant comme suit :
 
 On y est, notre connexion à la base est active, on va pouvoir manipuler les données (j&rsquo;adore ça, manipuler des données)!
 
-Avec CodeIgniter, ce qu&rsquo;il y a de bien c&rsquo;est qu&rsquo;on a vraiment le choix des armes pour construire nos requêtes : soit on les construit comme au bon vieux temps des `mysql_*()` soit on utilise la [méthode objet (PDO)](http://chierchia.fr/php-mysql/utiliser-pdo-pour-les-connexion-a-une-bdd/ "Utiliser PDO pour les connexions à une base de données"), ou encore mieux on utilise les nombreuses fonctions du Framework!
+Avec CodeIgniter, ce qu&rsquo;il y a de bien c&rsquo;est qu&rsquo;on a vraiment le choix des armes pour construire nos requêtes : soit on les construit comme au bon vieux temps des `mysql_*()` soit on utilise la [méthode objet (PDO)](http://chierchia.fr/blog/utiliser-pdo-pour-les-connexion-a-une-bdd/ "Utiliser PDO pour les connexions à une base de données"), ou encore mieux on utilise les nombreuses fonctions du Framework!
 
 Comme il y a toute une flopée de fonctions préexistantes je vais volontairement ne présenter que les plus courantes.
 
