@@ -45,7 +45,7 @@ gulp.task('serve', ['build'], function() {
 	gulp.watch('_source/contents/**/*', ['contents']);
 	gulp.watch('_source/assets/img/**/*', ['images']);
 	gulp.watch('_source/assets/sass/**/*.scss', ['compile']);
-	gulp.watch('_source/**/*.+(md|html|xml', ['build']);
+	gulp.watch('_source/**/*.+(md|html|xml)', ['build']);
 	//gulp.watch('_deploy/**/*.*').on('change', browserSync.reload);
 });
 
