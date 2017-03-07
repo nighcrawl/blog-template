@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('images', function() {
 	return gulp.src('_source/assets/img/**/*.+(png|jpg|jpeg|gif|svg)')
 	.pipe(imagemin())
-	.pipe(gulp.dest('_deploy/assets/img'))
+	.pipe(gulp.dest('_source/assets/img'))
 	.pipe(browserSync.reload({ stream: true}));
 });
 
