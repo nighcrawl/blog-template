@@ -16,7 +16,7 @@ gulp.task('images', function() {
 gulp.task('contents', function() {
 	return gulp.src('_source/contents/**/*.+(png|jpg|jpeg|gif|svg)')
 	.pipe(imagemin())
-	.pipe(gulp.dest('_deploy/contents'))
+	.pipe(gulp.dest('_source/contents'))
 	.pipe(browserSync.reload({ stream: true}));
 });
 
