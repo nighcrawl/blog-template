@@ -38,116 +38,60 @@ Allez, c&rsquo;est parti.
 
 ## Le code HTML
 
-<pre class="brush:html">&lt;ul id="nav"&gt;
-&lt;li id="nav_home"&gt;&lt;a href="menu.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-&lt;li id="nav_services"&gt;&lt;a href="menu_s.html"&gt;Services&lt;/a&gt;&lt;/li&gt;
-&lt;li id="nav_references"&gt;&lt;a href="menu_r.html"&gt;Références&lt;/a&gt;&lt;/li&gt;
-&lt;li id="nav_contact"&gt;&lt;a href="menu_c.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</pre>
+    <ul class="nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#references">Références</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
 Ici on engloble notre menu dans une structure de liste non-ordonnée (<ul></ul>) avec un identifiant #nav, on aurait aussi pu utiliser une classe .nav pour l&rsquo;élément ul. Chaque élément de liste (<li></li>) a ensuite son propre identifiant, ce qui va nous permettre de bien positionner notre image pour chaque élément.
 
 ## La feuille de style
 
-<pre class="brush:css">#nav {
-width: 726px;
-height: 30px;
-position: relative;
-background:url(nav_main.png);
-margin: 0;
-padding: 0;
-list-style-type:none;
-margin-bottom:10px;
-}
-
-#nav li {
-float: left;
-}
-
-#nav li a {
-position: absolute;
-top: 0;
-margin: 0;
-padding: 0;
-display: block;
-height: 30px;
-background: url(nav_main.png) no-repeat;
-text-indent: -9999px;
-overflow: hidden;
-}
-
-/*normal state*/
-li#nav_home a {
-left: 0;
-width: 97px;
-background-position: 0 0;
-}
-
-li#nav_services a {
-left: 97px;
-width: 97px;
-background-position: -97px 0;
-}
-
-li#nav_references a {
-left: 194px;
-width: 97px;
-background-position: -194px 0;
-}
-
-li#nav_contact a {
-left: 291px;
-width: 97px;
-background-position: -291px 0;
-}
-
-/*hover state*/
-li#nav_home a:hover {
-background-position: 0 -30px;
-}
-
-li#nav_services a:hover {
-background-position: -97px -30px;
-}
-
-li#nav_references a:hover {
-background-position: -194px -30px;
-}
-
-li#nav_contact a:hover {
-background-position: -291px -30px;
-}
-
-/*current state*/
-#body_home li#nav_home a{
-background-position: 0 -30px;
-}
-
-#body_services li#nav_services a {
-background-position: -97px -30px;
-}
-
-#body_references li#nav_references a {
-background-position: -194px -30px;
-}
-#body_contact li#nav_contact a {
-background-position: -291px -30px;
-}</pre>
+    .nav {
+      background-image: url(../img/nav_main.png);
+      height: 30px;
+      list-style-type: none;
+      margin: 0 auto 10px;
+      padding: 0;
+      position: relative;
+      width: 726px;
+    }
+    .nav li {
+      float: left;
+    }
+    .nav a {
+      display: block;
+      line-height: 30px;
+      overflow: hidden;
+      text-align: center;
+      text-indent: -9999em;
+      width: 97px;
+    }
+    .nav a:focus, .nav a:hover {
+      background-image: url(../img/nav_main.png);
+    }
+    .nav a[href="#home"]:focus, .nav a[href="#home"]:hover {
+      background-position: 0 -30px;
+    }
+    .nav a[href="#services"]:focus, .nav a[href="#services"]:hover {
+      background-position: -97px -30px;
+    }
+    .nav a[href="#references"]:focus, .nav a[href="#references"]:hover {
+      background-position: -194px -30px;
+    }
+    .nav a[href="#contact"]:focus, .nav a[href="#contact"]:hover {
+      background-position: -291px -30px;
+    }
 
 On voit ici que tout ce joue avec l&rsquo;attribut background-position qui permet de donner les coordonnées permettant d&rsquo;afficher la bonne partie de l&rsquo;image. Ainsi, comme chaque bouton a les dimensions 97&#215;30, si l&rsquo;on veu afficher l&rsquo;état survolé du troisième élément, nous devrons postionner l&rsquo;image à -30px pour l&rsquo;axe verticale de l&rsquo;image, et -194px pour l&rsquo;axe horizontal (97&#215;97) ainsi on affichera 97px à partir du 195ième pixel de notre image.
 
 <img class="alignnone  wp-image-262" title="dimensions_menu" alt="dimensions_menu" src="/contents/uploads/2009/06/dimensions_menu.jpg?fit=448%2C93" data-recalc-dims="1" />
 
-Pour que le bouton du menu soit activé lorsque l&rsquo;on se trouve sur la page active, il suffit, grâce à notre CSS, de définir un identifiant pour la balise de notre page, ainsi si l&rsquo;on se trouve sur la page Références, notre balise sera :
+Pour que le bouton du menu soit activé lorsque l&rsquo;on se trouve sur la page active, il suffira, grâce à notre CSS, de définir un identifiant pour la balise <body> de notre page, ainsi si l&rsquo;on se trouve sur la page Références, notre balise sera par exemple :
 
-<pre class="brush:html">&lt;body id="body_references"&gt;</pre>
+    <body id="page-references">
 
-<div>
-  <h2>
-    Fichiers source
-  </h2>
-  
-  <p>
-    <a class="demo_link" href="http://chierchia.fr/fichiers/menusprites/menu.php">Voir la démo</a> <a class="download_link" title="Télécharger les fichiers sur GitHub" href="https://github.com/nighcrawl/demo.chierchia.fr/tree/master/menusprites" target="_blank">Télécharger les fichiers</a>
-  </p>
-</div>
+## Fichiers source
+[Voir la démo](https://nighcrawl.github.io/css-sprite-menu/) ou [Télécharger les fichiers](https://github.com/nighcrawl/css-sprite-menu).

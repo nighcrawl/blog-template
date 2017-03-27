@@ -52,9 +52,9 @@ Comme tout script jQuery, il est préférable d&rsquo;attendre que la page soit 
 On ajoute maintenant l&rsquo;appel au plugin jQuery LavaLamp dans notre script en lui passant les paramètres  souhaités pour l&rsquo;animation:
 
     $(function() {
-      $("#menu").lavaLamp({
+      $(".menu").lavaLamp({
         fx: "backout",
-        speed: 700,
+        speed: 800,
         click: function(event, menuItem) {
           return false;
         }
@@ -73,49 +73,43 @@ Aussi, plutôt que d&rsquo;utiliser des propriétés de CSS3 qui pourraient nous
 
 Bon allez, envoi du style Marcel!
 
-    #menu {
-      position: relative;
-      height: 29px;
-      width: 421px;
-      background: url("images/bg.gif") no-repeat top;
-      padding: 15px;
-      margin: 10px 0;
-      overflow: hidden;
-    }
-    #menu li {
-      float: left;
-      list-style: none;
-    }
-    #menu li.back {
-      background: url("images/lava.gif") no-repeat right -30px;
-      width: 9px; height: 30px;
-      z-index: 8;
-      position: absolute;
-    }
-    #menu li.back .left {
-      background: url("images/lava.gif") no-repeat top left;
+    .menu {
+      background-image: url(../img/bg.gif);
+      background-position: top;
+      background-repeat: no-repeat;
       height: 30px;
-      margin-right: 9px; /* 7px is the width of the rounded shape */
+      list-style-type: none;
+      padding: 15px;
+      position: relative;
+      width: 421px;
     }
-    #menu li a {
-      font: bold 14px arial;
-      text-decoration: none;
+    .menu li {
+      float: left;
+    }
+    .menu .back {
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      background-image: url(../img/lava.gif);
+      background-repeat: no-repeat;
+      display: block;
+      height: 29px;
+      position: absolute;
+      width: 62px;
+      z-index: 1;
+    }
+    .menu a {
       color: #fff;
-      outline: none;
-      text-align: center;
-      top: 7px;
-      text-transform: uppercase;
-      letter-spacing: 0;
-      z-index: 10;
       display: block;
       float: left;
-      height: 30px;
+      font-family: sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      margin: auto 14px;
+      padding: 6px 0;
       position: relative;
-      overflow: hidden;
-      margin: auto 10px;
-    }
-    #menu li a:hover, #menu li a:active, #menu li a:visited {
-      border: none;
+      text-decoration: none;
+      z-index: 8;
     }
 
 Là aussi rien de trop compliqué. Le point important de cette CSS est l&rsquo;utilisation des propriétés position et z-index.
@@ -126,7 +120,7 @@ La propriété z-index:8 utilisée dans la classe .back permet de positionner so
 
 Notre menu Lava est terminé.
 
-[Voir la démo](http://demo.angechierchia.com/lavalampmenu/) [Télécharger les fichiers](https://github.com/nighcrawl/demo.chierchia.fr/tree/master/lavalampmenu)
+[Voir la démo](https://nighcrawl.github.io/lava-lamp-menu/) [Télécharger les fichiers](https://github.com/nighcrawl/lava-lamp-menu/)
 
 ## Conclusion
 

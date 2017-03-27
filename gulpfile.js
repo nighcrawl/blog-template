@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
 	browserSync = require('browser-sync').create(),
 	compass = require('gulp-compass'),
-	imagemin = require('gulp-imagemin')
+	imagemin = require('gulp-imagemin'),
+	unused = require('gulp-delete-unused-images'),
 	cp = require('child_process');
 
 // Minifie les images contenues dans le dossier _source/assets/img
@@ -37,6 +38,15 @@ gulp.task('build', function() {
 	cp.exec('jekyll build --watch', function(err, stdout, stderr) {
 		console.log(stdout, stderr, err);
 	});
+});
+
+//Supprime les images non utilisées
+gulp.task('unused-img', function() {
+	gulp.src(['_deploy/contents/**/*'])
+	.pipe(unused({
+		log: true,
+		delete: true
+	})).pipe(gulp.dest('_deploy/contents'));
 });
 
 // Sert le site avec browserSync
