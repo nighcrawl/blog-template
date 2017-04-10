@@ -18,6 +18,10 @@ Malheureusement, même si il est possible de forcer le HTTPS sur les pages du si
 
 Et puis, comme ça l'air de rien une petite newsletter OVH tombe dans ma boîte mail, proposant un nom de domaine en `.me` à -70%, du coup je me laisse tenter et puis une chose en entrainant une autre, je décide de prendre un petit VPS à pas cher...
 
-## Configuration du VPS
+## Déployer Jekyll via GitHub
+
+J'aime beaucoup GitHub, je m'en sert principalement pour sauvegarder quelques projets et ça m'évite de garder une copie sur un disque externe, je souhaitais donc pouvoir l'utiliser comme relai entre ma machine et le serveur, comme ça si il me prend l'envie de tout remettre à zéro, j'ai mes projets sauvés sur GitHub un `git clone` et on en parle plus.
+
+N'ayant jamais vraiment utilisé Linux, je me suis dit que c'était l'occasion. J'ai donc choisi de configurer mon VPS en distribution nue sous Debian 8 pour pouvoir installer uniquement ce dont j'avais besoin et laisser le plus de place possible pour mon site sur le disque dur. En gros :  Apache, Git, Ruby et Let's Encrypt.
 
 [1]: {{site.baseurl}}/blog/jekyll
