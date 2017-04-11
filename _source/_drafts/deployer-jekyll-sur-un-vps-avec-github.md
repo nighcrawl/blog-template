@@ -20,8 +20,54 @@ Et puis, comme ça l'air de rien une petite newsletter OVH tombe dans ma boîte 
 
 ## Déployer Jekyll via GitHub
 
-J'aime beaucoup GitHub, je m'en sert principalement pour sauvegarder quelques projets et ça m'évite de garder une copie sur un disque externe, je souhaitais donc pouvoir l'utiliser comme relai entre ma machine et le serveur, comme ça si il me prend l'envie de tout remettre à zéro, j'ai mes projets sauvés sur GitHub un `git clone` et on en parle plus.
+J'aime beaucoup GitHub, je m'en sert principalement pour sauvegarder quelques projets et ça m'évite de garder une copie sur un disque externe, je souhaitais donc pouvoir l'utiliser comme relai entre ma machine et le serveur, comme ça si il me prend l'envie de tout remettre à zéro, j'ai mes projets sauvés sur GitHub, un `git clone` et on en parle plus.
 
 N'ayant jamais vraiment utilisé Linux, je me suis dit que c'était l'occasion. J'ai donc choisi de configurer mon VPS en distribution nue sous Debian 8 pour pouvoir installer uniquement ce dont j'avais besoin et laisser le plus de place possible pour mon site sur le disque dur. En gros :  Apache, Git, Ruby et Let's Encrypt.
+
+Ici je n'expliquerai pas comment j'ai installé Apache, Git, Ruby et Let's Encrypt. Je me contenterai de partager ma méthode pour déployer Jekyll.
+
+### Créer le dépôt Git distant
+
+La première étape de ma méthode a consistée à créer un dépôt Git à la racine du VPS avec la commande suivante :
+
+```
+# connexion au VPS
+ssh git@mon.vps
+# création du dépôt distant
+git clone --bare https://github.com/nighcrawl/jekyll-blog.git blog.git
+exit
+```
+
+Avec cette commande on clone le dépôt GitHub nu sur le VPS, c'est à dire en ne gardant que les fichiers contenus `.git` dans le dossier `blog.git`. Le dossier `blog.git` ressemble alors à ceci :
+
+```
+blog.git/
+|_ HEAD/
+|_ branches/
+|_ config/
+|_ description/
+|_ hooks/
+|  |_ post-receive
+|  |_ post-update
+|  |_ ...
+|_ infos/
+|_ objects/
+|_ refs/
+```
+
+Le fichier intéressant ici est `post-receive` du dossier `hooks/` car il va nous permettre d'executer un script bash à chaque fois qu'un `git push` sur le dépôt aura été complété. 
+
+Pour nous, il faudra lancer la génération du site avec Jekyll à chaque nouveau `git push`, le fichier `post-receive` contiendra alors le script suivant : 
+
+```
+GIT_REPO=$HOME/blog.git
+TMP_GIT_CLONE=$HOME/tmp/blog
+PUBLIC_WWW=/var/www/blog
+
+git clone $GIT_REPO $TMP_GIT_CLONE
+bundle exec jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
+rm -Rf $TMP_GIT_CLONE
+exit
+```
 
 [1]: {{site.baseurl}}/blog/jekyll
