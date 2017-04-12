@@ -35,10 +35,9 @@ La première étape de ma méthode a consistée à créer un dépôt Git à la r
 ssh git@mon.vps
 # création du dépôt distant
 git clone --bare https://github.com/nighcrawl/jekyll-blog.git blog.git
-exit
 ```
 
-Avec cette commande on clone le dépôt GitHub nu sur le VPS, c'est à dire en ne gardant que les fichiers contenus `.git` dans le dossier `blog.git`. Le dossier `blog.git` ressemble alors à ceci :
+Avec cette commande on clone le dépôt GitHub nu sur le VPS, c'est à dire en ne gardant que les fichiers normalement contenus dans `.git/` dans le dossier `blog.git/`. Le dossier `blog.git` ressemble alors à ceci :
 
 ```
 blog.git/
@@ -69,5 +68,22 @@ bundle exec jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
 rm -Rf $TMP_GIT_CLONE
 exit
 ```
+
+Ici on déclare plusieurs variable en début de script: 
+* `GIT_REPO` contient le chemin vers le dépôt Git,
+* `TMP_GIT_CLONE` permet de définir où sera cloné le dépôt
+* `PUBLIC_WWW` contiendra les fichiers du site une fois compilés avec Jekyll
+
+Une fois le dépôt Git cloné dans `$TMP_GIT_CLONE`, on lance la commande de compilation des fichier `bundle exec jekyll build` en spécifiant le dossier `$TMP_GIT_CLONE` comme étant la source et `$PUBLIC_WWW` comme destination, puis on supprime le dossier `$TMP_GIT_CLONE` avec la commande `rm -Rf $TMP_GIT_CLONE`.
+
+### Créer le dépôt Git local
+
+Une fois le dépôt distant créé et le fichier `post-receive` modifié, il ne reste plus qu'à cloné le dépôt sur l'ordinateur avec la commande 
+
+```
+git clone https://github.com/nighcrawl/jekyll-blog.git
+```
+
+puis d'y ajouter une source distante
 
 [1]: {{site.baseurl}}/blog/jekyll
