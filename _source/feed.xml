@@ -18,7 +18,8 @@ permalink: /feed.xml
     <description>
       {% if post.image and post.image != "" %}
         {% capture post_thumb %}<img src='{{ post.image | prepend: site.baseurl | prepend: site.url }}' />{% endcapture %}
-        {{ post.content | prepend: post_thumb | markdownify | xml_escape }}
+        {{ post_thumb | xml_escape }}
+        {{ post.content | markdownify | xml_escape }}
       {% else %}
         {{ post.content | markdownify | xml_escape }}
       {% endif %}
