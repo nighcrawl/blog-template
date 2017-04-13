@@ -94,4 +94,4 @@ Ici le dépôt GitHub s'appelle `origin` et mon dépôt de production (sur le VP
 
 La méthode de déploiement que j'utilise ici est assez basique et pourra probablement être améliorée, alors n'hésitez pas à la partager, ou mieux me donner votre avis et/ou vos conseils sur Twitter.
 
-[1]: {{site.baseurl}}/blog/jekyll/
+[1]: https://chierchia.fr/blog/jekyll/
