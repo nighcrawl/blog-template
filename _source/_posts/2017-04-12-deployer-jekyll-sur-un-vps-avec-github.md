@@ -1,7 +1,9 @@
 ---
 title: Déployer Jekyll sur un VPS avec GitHub
+date: 2017-04-12T12:52:41+00:00
 layout: post
 permalink: /blog/deployer-jekyll-sur-un-vps-avec-github/
+image: /contents/uploads/git.jpg
 tags: Jekyll, Migration, git
 ---
 
@@ -30,44 +32,38 @@ Ici je n'expliquerai pas comment j'ai installé Apache, Git, Ruby et Let's Encry
 
 La première étape de ma méthode a consistée à créer un dépôt Git à la racine du VPS avec la commande suivante :
 
-```
-# connexion au VPS
-ssh git@mon.vps
-# création du dépôt distant
-git clone --bare https://github.com/nighcrawl/jekyll-blog.git blog.git
-```
+    # connexion au VPS
+    ssh git@mon.vps
+    # création du dépôt distant
+    git clone --bare https://github.com/nighcrawl/jekyll-blog.git blog.git
 
 Avec cette commande on clone le dépôt GitHub nu sur le VPS, c'est à dire en ne gardant que les fichiers normalement contenus dans `.git/` dans le dossier `blog.git/`. Le dossier `blog.git` ressemble alors à ceci :
 
-```
-blog.git/
-|_ HEAD/
-|_ branches/
-|_ config/
-|_ description/
-|_ hooks/
-|  |_ post-receive
-|  |_ post-update
-|  |_ ...
-|_ infos/
-|_ objects/
-|_ refs/
-```
+    blog.git/
+    |_ HEAD/
+    |_ branches/
+    |_ config/
+    |_ description/
+    |_ hooks/
+    |  |_ post-receive
+    |  |_ post-update
+    |  |_ ...
+    |_ infos/
+    |_ objects/
+    |_ refs/
 
 Le fichier intéressant ici est `post-receive` du dossier `hooks/` car il va nous permettre d'executer un script bash à chaque fois qu'un `git push` sur le dépôt aura été complété. 
 
 Pour nous, il faudra lancer la génération du site avec Jekyll à chaque nouveau `git push`, le fichier `post-receive` contiendra alors le script suivant : 
 
-```
-GIT_REPO=$HOME/blog.git
-TMP_GIT_CLONE=$HOME/tmp/blog
-PUBLIC_WWW=/var/www/blog
+    GIT_REPO=$HOME/blog.git
+    TMP_GIT_CLONE=$HOME/tmp/blog
+    PUBLIC_WWW=/var/www/blog
 
-git clone $GIT_REPO $TMP_GIT_CLONE
-bundle exec jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
-rm -Rf $TMP_GIT_CLONE
-exit
-```
+    git clone $GIT_REPO $TMP_GIT_CLONE
+    bundle exec jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
+    rm -Rf $TMP_GIT_CLONE
+    exit
 
 Ici on déclare plusieurs variable en début de script: 
 * `GIT_REPO` contient le chemin vers le dépôt Git,
@@ -80,10 +76,22 @@ Une fois le dépôt Git cloné dans `$TMP_GIT_CLONE`, on lance la commande de co
 
 Une fois le dépôt distant créé et le fichier `post-receive` modifié, il ne reste plus qu'à cloné le dépôt sur l'ordinateur avec la commande 
 
-```
-git clone https://github.com/nighcrawl/jekyll-blog.git
-```
+    git clone https://github.com/nighcrawl/jekyll-blog.git
 
-puis d'y ajouter une source distante
+puis d'y ajouter votre dépôt distant comme `remote` supplémentaire avec la commande
 
-[1]: {{site.baseurl}}/blog/jekyll
+    git remote add deploy ssh://git@mon.vps:/blog.git
+
+## Déployer en production
+
+Pour pousser les mises à jour vers le VPS il suffira alors de faire un `git push` en spécifiant le dépôt distant dans lequel vous souhaitez envoyer vos commits. 
+
+Ici le dépôt GitHub s'appelle `origin` et mon dépôt de production (sur le VPS) s'appelle `deploy`. La commande de mise à jour du VPS sera alors
+
+    git push deploy master
+
+## Fin
+
+La méthode de déploiement que j'utilise ici est assez basique et pourra probablement être améliorée, alors n'hésitez pas à la partager, ou mieux me donner votre avis et/ou vos conseils sur Twitter.
+
+[1]: {{site.baseurl}}/blog/jekyll/
