@@ -777,6 +777,32 @@ pre {
 }
 
 /*
+ * Archives page layout
+ */
+.archives-page .posts-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-summary {
+  border-bottom: 1px solid whitesmoke;
+  padding-bottom: 1em;
+}
+.post-summary a {
+  color: initial;
+  text-decoration: none;
+}
+.post-summary a .post-title {
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.post-summary a:hover .post-title {
+  color: #30adad;
+}
+
+/*
  * Link post format
  */
 .post-format--link {
