@@ -784,22 +784,33 @@ pre {
   padding-left: 0;
 }
 
-.post-summary {
+.archives-page .post-summary {
   border-bottom: 1px solid whitesmoke;
   padding-bottom: 1em;
+  padding-top: 1em;
 }
-.post-summary a {
+.archives-page .post-summary:last-child {
+  border-bottom: none;
+}
+.archives-page .post-summary a {
   color: initial;
   text-decoration: none;
 }
-.post-summary a .post-title {
+.archives-page .post-summary a .post-title {
   -moz-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+  font-size: 1em;
 }
-.post-summary a:hover .post-title {
+.archives-page .post-summary a:hover .post-title {
   color: #30adad;
+}
+
+.archives-page .post-link--permalink {
+  height: 16px;
+  margin: .25em .5em 0 0;
+  width: 16px;
 }
 
 /*

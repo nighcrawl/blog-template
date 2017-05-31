@@ -6,9 +6,11 @@
     <ul class="site-nav">
         <li class="nav-item"><a href="{{ "/" | relative_url}}">blog</a></li>
         {% for nav  in site.pages %}
-            {% if nav.title && nav.url %}
-            <li class="nav-item"><a href="{{ nav.url }}">{{ nav.title | downcase | escape }}</a></li>
-            {% endif %}
+          {% unless nav.exclude %}
+              {% if nav.title && nav.url %}
+              <li class="nav-item"><a href="{{ nav.url }}">{{ nav.title | downcase | escape }}</a></li>
+              {% endif %}
+          {% endunless %}
         {% endfor %}
     </ul>
 </header>
