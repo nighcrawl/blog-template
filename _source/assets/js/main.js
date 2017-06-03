@@ -1,11 +1,10 @@
 var replaceFormspreeEmail = function() {
 	var emailLink = document.querySelector(".contact-form"),
 		emailName = "ange.chierchia",
-		emailTLD = "gmail.com",
+		emailTLD = "gmail.com";
 
 	emailLink.setAttribute("action", "https://formspree.io/" + emailName + "@" + emailTLD);
 };
-
 
 document.addEventListener('DOMContentLoaded', function() {
 	if (document.querySelector(".contact-form").length)
@@ -20,7 +19,10 @@ jQuery(document).ready(function($) {
 				url: $(this).attr('action'), 
 				method: "POST",
 				data: $(this).serialize(),
-				dataType: "json"
+				dataType: "json",
+				success: function(data) {
+					console.log(data);
+				}
 			});
 		});
 	}

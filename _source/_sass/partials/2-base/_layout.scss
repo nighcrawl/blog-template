@@ -67,7 +67,7 @@
 	}
 
 	a {
-		@include border-radius(3px);
+		@include border-radius($base-radius);
 		color: $font-color;
 		padding: .25em .5em;
 		text-decoration: none;

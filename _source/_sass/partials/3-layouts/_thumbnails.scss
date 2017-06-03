@@ -3,7 +3,7 @@
  */
 
 .main-content .thumbnail {
-	@include border-radius(3px);
+	@include border-radius($base-radius);
 	margin: 0 -1.5em;
 	margin-bottom: 1.5em;
 	width: calc(100% + 3em);

@@ -819,6 +819,41 @@ pre {
 }
 
 /*
+ * Contact page layout
+ */
+.contact-form label {
+  display: block;
+}
+.contact-form input, .contact-form textarea {
+  border: 1px solid #b3b3b3;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: .5em;
+  width: 100%;
+}
+.contact-form [type="submit"] {
+  background-color: #30adad;
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: whitesmoke;
+  padding: .5em;
+  text-decoration: none;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.contact-form [type="submit"]:focus, .contact-form [type="submit"]:hover {
+  background-color: #111;
+}
+
+/*
  * Link post format
  */
 .post-format--link {
