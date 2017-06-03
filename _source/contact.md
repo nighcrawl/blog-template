@@ -7,7 +7,7 @@ permalink: /contact/
 ---
 Pour me demander de l&rsquo;aide sur une question ayant trait au développement Web en général, me proposer une opportunité ou tout simplement dire bonjour, vous pouvez [me contacter sur Twitter](https://twitter.com/nighcrawl) ou bien utiliser le formulaire ci-dessous.
 
-<form class="contact-form" method="POST" action="http://formspree.io/dont@spam.me">
+<form class="contact-form" method="POST">
 	<p>
 		<label for="name">Nom</label>
 		<input type="text" id="name" name="name" placeholder="Votre nom" required />
