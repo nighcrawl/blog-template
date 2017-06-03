@@ -10,20 +10,3 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (document.querySelector(".contact-form").length)
 		replaceFormspreeEmail();
 });
-
-jQuery(document).ready(function($) {
-	if ($(".contact-form").length) {
-		$(".contact-form").submit(function(event) {
-			event.preventDefault();
-			$.ajax({
-				url: $(this).attr('action'), 
-				method: "POST",
-				data: $(this).serialize(),
-				dataType: "json",
-				success: function(data) {
-					console.log(data);
-				}
-			});
-		});
-	}
-});

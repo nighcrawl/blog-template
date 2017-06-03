@@ -10,15 +10,15 @@ Pour me demander de l&rsquo;aide sur une question ayant trait au développemen
 <form class="contact-form" method="POST" action="http://formspree.io/dont@spam.me">
 	<p>
 		<label for="name">Nom</label>
-		<input type="text" id="name" name="name" placeholder="Votre nom">
+		<input type="text" id="name" name="name" placeholder="Votre nom" required />
 	</p>
 	<p>
 		<label for="email">Email</label>
-		<input type="email" id="email" name="_replyto" placeholder="Votre adresse email" />
+		<input type="email" id="email" name="_replyto" placeholder="Votre adresse email" required />
 	</p>
 	<p>
 		<label for="message">Message</label>
-		<textarea id="message" name="message" placeholder="Votre message"></textarea>
+		<textarea id="message" name="message" placeholder="Votre message" required></textarea>
 	</p>
 
 	<input type="hidden" name="_format" value="html" />
