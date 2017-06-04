@@ -7,6 +7,6 @@ var replaceFormspreeEmail = function() {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-	if (document.querySelector(".contact-form").length)
+	if (document.querySelector(".contact-form"))
 		replaceFormspreeEmail();
 });
