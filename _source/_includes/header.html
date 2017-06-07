@@ -1,6 +1,10 @@
 <header class="site-header">
     <a href="{{ "/" | relative_url}}" class="logo">
-        <p class="site-title">{{ site.title }}</p>
+        {% if page.body_class == "home-page" %}
+            <h1 class="site-title">{{ site.title }}</h1>
+        {% else %}
+            <p class="site-title">{{ site.title }}</p>
+        {% endif %}
         <span class="site-tagline">{{ site.tagline }}</span>
     </a>
     <ul class="site-nav">
