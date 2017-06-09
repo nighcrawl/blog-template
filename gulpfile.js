@@ -1,13 +1,17 @@
 var gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
-	pump = require("pump");
+	htmlmin = require("gulp-htmlmin");
 
-gulp.task('compress', function(c) {
-	pump([
-		gulp.src('_source/assets/js/**/*.js'),
-		uglify(),
-		gulp.dest('_deploy/assets/js')
-	], c);
+gulp.task('js', function(){
+	return gulp.src('_source/assets/js/**/*.js')
+		.pipe(uglify())
+		.pipe(gulp.dest('_deploy/assets/js'));
 });
 
-gulp.task('default', ['compress']);
+gulp.task('html', function(){
+	return gulp.src('_deploy/**/*.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest('_deploy'));
+});
+
+gulp.task('default', ['js', 'html']);

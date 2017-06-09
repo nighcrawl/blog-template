@@ -18,20 +18,6 @@
 # ######################################################################
 
 # ----------------------------------------------------------------------
-# | Cross-origin requests                                              |
-# ----------------------------------------------------------------------
-
-# Allow cross-origin requests.
-#
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
-# http://enable-cors.org/
-# http://www.w3.org/TR/cors/
-
-# <IfModule mod_headers.c>
-#     Header set Access-Control-Allow-Origin "*"
-# </IfModule>
-
-# ----------------------------------------------------------------------
 # | Cross-origin images                                                |
 # ----------------------------------------------------------------------
 
@@ -60,24 +46,6 @@
         Header set Access-Control-Allow-Origin "*"
     </FilesMatch>
 </IfModule>
-
-# ----------------------------------------------------------------------
-# | Cross-origin resource timing                                       |
-# ----------------------------------------------------------------------
-
-# Allow cross-origin access to the timing information for all resources.
-#
-# If a resource isn't served with a `Timing-Allow-Origin` header that
-# would allow its timing information to be shared with the document,
-# some of the attributes of the `PerformanceResourceTiming` object will
-# be set to zero.
-#
-# http://www.w3.org/TR/resource-timing/
-# http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
-
-# <IfModule mod_headers.c>
-#     Header set Timing-Allow-Origin: "*"
-# </IfModule>
 
 
 # ######################################################################
@@ -455,9 +423,9 @@ AddDefaultCharset utf-8
 # https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
 # http://blogs.msdn.com/b/ieinternals/archive/2014/08/18/hsts-strict-transport-security-attacks-mitigations-deployment-https.aspx
 
-# <IfModule mod_headers.c>
-#     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
-# </IfModule>
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+</IfModule>
 
 # ----------------------------------------------------------------------
 # | Reducing MIME type security risks                                  |
@@ -643,16 +611,16 @@ FileETag None
 
   # Data interchange
 
-    ExpiresByType application/atom+xml                  "access plus 1 hour"
-    ExpiresByType application/rdf+xml                   "access plus 1 hour"
-    ExpiresByType application/rss+xml                   "access plus 1 hour"
+    ExpiresByType application/atom+xml                  "access plus 1 week"
+    ExpiresByType application/rdf+xml                   "access plus 1 week"
+    ExpiresByType application/rss+xml                   "access plus 1 week"
 
-    ExpiresByType application/json                      "access plus 0 seconds"
-    ExpiresByType application/ld+json                   "access plus 0 seconds"
-    ExpiresByType application/schema+json               "access plus 0 seconds"
-    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
-    ExpiresByType application/xml                       "access plus 0 seconds"
-    ExpiresByType text/xml                              "access plus 0 seconds"
+    ExpiresByType application/json                      "access plus 1 week"
+    ExpiresByType application/ld+json                   "access plus 1 week"
+    ExpiresByType application/schema+json               "access plus 1 week"
+    ExpiresByType application/vnd.geo+json              "access plus 1 week"
+    ExpiresByType application/xml                       "access plus 1 week"
+    ExpiresByType text/xml                              "access plus 1 week"
 
 
   # Favicon (cannot be renamed!) and cursor images
@@ -662,7 +630,7 @@ FileETag None
 
   # HTML
 
-    ExpiresByType text/html                             "access plus 0 seconds"
+    ExpiresByType text/html                             "access plus 1 week"
 
 
   # JavaScript
@@ -675,8 +643,8 @@ FileETag None
   # Manifest files
 
     ExpiresByType application/manifest+json             "access plus 1 week"
-    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
-    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 1 week"
+    ExpiresByType text/cache-manifest                   "access plus 1 week"
 
 
   # Media files
@@ -719,53 +687,3 @@ FileETag None
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 
 </IfModule>
-
-# ----------------------------------------------------------------------
-# | File concatenation                                                 |
-# ----------------------------------------------------------------------
-
-# Allow concatenation from within specific files.
-#
-# e.g.:
-#
-#   If you have the following lines in a file called, for
-#   example, `main.combined.js`:
-#
-#       <!--#include file="js/jquery.js" -->
-#       <!--#include file="js/jquery.timer.js" -->
-#
-#   Apache will replace those lines with the content of the
-#   specified files.
-
-# <IfModule mod_include.c>
-#     <FilesMatch "\.combined\.js$">
-#         Options +Includes
-#         AddOutputFilterByType INCLUDES application/javascript \
-#                                        application/x-javascript \
-#                                        text/javascript
-#         SetOutputFilter INCLUDES
-#     </FilesMatch>
-#     <FilesMatch "\.combined\.css$">
-#         Options +Includes
-#         AddOutputFilterByType INCLUDES text/css
-#         SetOutputFilter INCLUDES
-#     </FilesMatch>
-# </IfModule>
-
-# ----------------------------------------------------------------------
-# | Filename-based cache busting                                       |
-# ----------------------------------------------------------------------
-
-# If you're not using a build process to manage your filename version
-# revving, you might want to consider enabling the following directives
-# to route all requests such as `/style.12345.css` to `/style.css`.
-#
-# To understand why this is important and even a better solution than
-# using something like `*.css?v231`, please see:
-# http://www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
-
-# <IfModule mod_rewrite.c>
-#     RewriteEngine On
-#     RewriteCond %{REQUEST_FILENAME} !-f
-#     RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
-# </IfModule>
