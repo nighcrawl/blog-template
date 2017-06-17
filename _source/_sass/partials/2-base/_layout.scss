@@ -5,7 +5,8 @@
 }
 
 .site-header {
-	@include border-radius(0 0 4px 4px);
+	border-radius: 0 0 $base-radius $base-radius;
+	//@include border-radius(0 0 4px 4px);
 	background-color: tint($light-background, 80%);
 	padding: 1em 1.5em;
 	display: flex;
@@ -67,11 +68,13 @@
 	}
 
 	a {
-		@include border-radius($base-radius);
+		border-radius: $base-radius;
+		//@include border-radius($base-radius);
 		color: $font-color;
 		padding: .25em .5em;
 		text-decoration: none;
-		@include single-transition(all, 200ms, ease-in-out);
+		transition: all 200ms ease-in-out;
+		//@include single-transition(all, 200ms, ease-in-out);
 
 		@media screen and (min-width: 598px) {
 			padding: .35em .65em;
@@ -90,7 +93,8 @@
 
 	a {
 		color: $accent-color;
-		@include single-transition(all, 200ms, ease-in-out);
+		transition: all 200ms ease-in-out;
+		//@include single-transition(all, 200ms, ease-in-out);
 
 		&:hover {
 			color: $font-color;
@@ -119,7 +123,8 @@
 }
 
 pre {
-	@include border-radius(3px);
+	border-radius: $base-radius;
+	//@include border-radius(3px);
 	background-color: $font-color;
 	color: tint($light-background, 70%);
 	margin-left: -1.5em;
@@ -175,7 +180,8 @@ pre {
 
 	a {
 		color: $accent-color;
-		@include single-transition(all, 200ms, ease-in-out);
+		transition: all 200ms ease-in-out;
+		//@include single-transition(all, 200ms, ease-in-out);
 
 		&:hover {
 			color: $font-color;

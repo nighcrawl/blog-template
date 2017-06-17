@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 gulp.task('jekyll-build', function(done) {
 	browserSync.notify(message.jekyllBuild);
 	return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
-		.on('close'm done);
+		.on('close', done);
 });
 
 // Jekyll, compress le HTML et recharge browserSync
@@ -23,7 +23,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 });
 
 // Attend jekyll-build, puis démarre le serveur
-gulp.task('browser-sync', ['sass', 'jekyll-build', 'html', 'js'], function() {
+gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
 	browserSync({
 		server: {
 			baseDir: '_deploy'
@@ -38,28 +38,28 @@ gulp.task('sass', function() {
 			includePaths: ['scss'],
 			onError: browserSync.notify
 		}))
-		.pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+		//.pipe(prefix({ browsers: ['last 15 versions', '> 1%', 'ie 8'], cascade: false }))
 		.pipe(gulp.dest('_deploy/assets/css'))
 		.pipe(browserSync.reload({ stream: true }))
-		.pipe(gulp.dest('assets/css'));
+		.pipe(gulp.dest('_deploy/assets/css'));
 });
 
-// Compresse les fichiers js
+// Compresse les fichiers js du dossier _deploy
 gulp.task('js', function(){
-	return gulp.src('_source/assets/js/**/*.js')
+	return gulp.src('_deploy/assets/js/**/*.js')
 		.pipe(uglify())
-		.pipe(gulp.dest('_deploy/assets/js'));
+		.pipe(gulp.dest('_deploy/assets/js'))
 		.pipe(browserSync.reload({ stream: true }))
-		.pipe(gulp.dest('assets/js'));
+		.pipe(gulp.dest('_deploy/assets/js'));
 });
 
-// Compresse les fichiers html
+// Compresse les fichiers html du dossier _deploy
 gulp.task('html', function(){
 	return gulp.src('_deploy/**/*.html')
 		.pipe(htmlmin({collapseWhitespace: true}))
-		.pipe(gulp.dest('_deploy'));
+		.pipe(gulp.dest('_deploy'))
 		.pipe(browserSync.reload({ stream: true }))
-		.pipe(gulp.dest('/'));
+		.pipe(gulp.dest('_deploy'));
 });
 
 // Watch

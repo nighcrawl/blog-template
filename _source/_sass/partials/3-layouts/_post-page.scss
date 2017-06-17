@@ -24,10 +24,9 @@
 
 .share-icon--facebook {
 	@extend %share-icon;
-	-webkit-mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
 	mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
 	mask-size: cover;
-	-webkit-mask-size: cover;	
+	
 
 	&:hover {
 		background-color: $facebook;
@@ -35,10 +34,8 @@
 }
 .share-icon--twitter {
 	@extend %share-icon;
-	-webkit-mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
 	mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
 	mask-size: cover;
-	-webkit-mask-size: cover;
 
 	&:hover {
 		background-color: $twitter;
@@ -54,5 +51,6 @@
 	text-indent: -999em;
 	width: 48px;
 	height: 48px;
-	@include single-transition(all, 200ms, ease-in-out);
+	transition: all 200ms ease-in-out;
+	//@include single-transition(all, 200ms, ease-in-out);
 }
