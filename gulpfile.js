@@ -34,11 +34,14 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
 // Compile Sass
 gulp.task('sass', function() {
 	return gulp.src('_source/_sass/**/*.scss')
-		.pipe(sass({
+		/*.pipe(sass({
 			includePaths: ['scss'],
 			onError: browserSync.notify
 		}))
-		//.pipe(prefix({ browsers: ['last 15 versions', '> 1%', 'ie 8'], cascade: false }))
+		.pipe(prefix({ browsers: ['last 15 versions', '> 1%', 'ie 8'], cascade: false }))
+		*/
+		.pipe(sass())
+		.pipe(prefix())
 		.pipe(gulp.dest('_deploy/assets/css'))
 		.pipe(browserSync.reload({ stream: true }))
 		.pipe(gulp.dest('_deploy/assets/css'));

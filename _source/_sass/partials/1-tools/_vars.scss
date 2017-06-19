@@ -1,3 +1,14 @@
+// Functions
+/// Slightly lighten a color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 //
 // Some Useful color Vars via http://clrs.cc/
 //
@@ -29,14 +40,3 @@ $font-color: $black;
 $light-background: $silver;
 $accent-color: shade($teal, 15%);
 $base-radius: 3px;
-
-// Functions
-/// Slightly lighten a color
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
-}
-
-/// Slightly darken a color
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
-}
