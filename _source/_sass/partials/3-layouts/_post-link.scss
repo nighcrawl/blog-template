@@ -22,10 +22,8 @@
 	text-indent: -999em;
 	width: 24px;
 	height: 24px;
-	mask: url(../img/link-icon.svg) no-repeat 50% 50%;
-	mask-size: cover;
+	@include mask('../img/link-icon.svg', cover, 50%, 50%);
 	transition: all 200ms ease-in-out;
-	//@include single-transition(all, 200ms, ease-in-out);
 
 	&:hover {
 		background-color: $accent-color;

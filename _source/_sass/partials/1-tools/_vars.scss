@@ -9,6 +9,13 @@
   @return mix(black, $color, $percentage);
 }
 
+@mixin mask($url, $size_type, $top, $left) {
+  mask: url($url) no-repeat $top $left;
+  -webkit-mask: url($url) no-repeat $top $left;
+  mask-size: $size_type;
+  -webkit-mask-size: $size_type;
+}
+
 //
 // Some Useful color Vars via http://clrs.cc/
 //
