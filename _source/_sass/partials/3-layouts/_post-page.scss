@@ -24,9 +24,7 @@
 
 .share-icon--facebook {
 	@extend %share-icon;
-	mask: url(../img/facebook-icon.svg) no-repeat 50% 50%;
-	mask-size: cover;
-	
+	@include mask('../img/facebook-icon.svg', cover, 50%, 50%);
 
 	&:hover {
 		background-color: $facebook;
@@ -34,8 +32,7 @@
 }
 .share-icon--twitter {
 	@extend %share-icon;
-	mask: url(../img/twitter-icon.svg) no-repeat 50% 50%;
-	mask-size: cover;
+	@include mask('../img/twitter-icon.svg', cover, 50%, 50%);
 
 	&:hover {
 		background-color: $twitter;
