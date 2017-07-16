@@ -25,58 +25,66 @@ Le but ici n&rsquo;est pas de vous faire une présentation de CSS3, donc on va t
 
 Bon allez, on plonge dans le code! Je n&rsquo;expliquerai pas le code volontairement, je pense que la définition des styles est assez clair et simple à comprendre. Si vous voulez plus d&rsquo;explications sur les déclarations CSS, un petit mot dans les commentaires du billet!
 
-<pre class="brush:css">.button {
 
-	/* style du texte */
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 1;
-	text-decoration: none;
-	color: #ffffff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.5); /* ombre décalée de 0px à droite, 1px en haut, un flou de 0px, de couleur noir et d'opacité 50% */
+    .button {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I1MDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzZkMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b50000), color-stop(100%, #6d0000));
+      background-image: -moz-linear-gradient(#b50000, #6d0000);
+      background-image: -webkit-linear-gradient(#b50000, #6d0000);
+      background-image: linear-gradient(#b50000, #6d0000);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1;
+      margin: 2px;
+      padding: 8px 10px;
+      text-decoration: none;
+    }
 
-	/* fond dégradé pour le bouton */
-	background: -moz-linear-gradient(top, #b50000, #6d0000); /* Firefox */
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#b50000), to(#6d0000)); /* Safari et Chrome*/
+    .button:hover {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzMzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #000000));
+      background-image: -moz-linear-gradient(#333333, #000000);
+      background-image: -webkit-linear-gradient(#333333, #000000);
+      background-image: linear-gradient(#333333, #000000);
+    }
 
-	/* style général du bouton */
-	display: inline-block;
-	padding: 8px 10px 8px;
-	-moz-border-radius: 4px; /* coins arrondi pour Firefox */
-	-webkit-border-radius: 4px; /* coins arrondi pour Safari et Chrome */
-	border-radius: 4px;
-	border-bottom: 1px solid rgba(0,0,0,0.5);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	margin: 2px;
-}
+    .button.medium {
+      font-size: 12px;
+    }
 
-.button.medium { font-size: 12px; }
+    .button.small {
+      font-size: 10px;
+    }
 
-.button.small { font-size: 10px; }
+    .button.round {
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    }
 
-.button.blue {
-	background: -moz-linear-gradient(top, #6d93c0, #3d5b78); /* Firefox */
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#6d93c0), to(#3d5b78)); /* Safari et Chrome*/
-}
+    .button.blue {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZkOTNjMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNkNWI3OCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6d93c0), color-stop(100%, #3d5b78));
+      background-image: -moz-linear-gradient(#6d93c0, #3d5b78);
+      background-image: -webkit-linear-gradient(#6d93c0, #3d5b78);
+      background-image: linear-gradient(#6d93c0, #3d5b78);
+    }
 
-.button:hover {
-	background: -moz-linear-gradient(top, #333333, #000000); /* Firefox */
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#000000)); /* Safari et Chrome*/
-
-}
-
-.button.arrondi {
-	-moz-border-radius: 20px; /* coins arrondi pour Firefox */
-	-webkit-border-radius: 20px; /* coins arrondi pour Safari et Chrome */
-	border-radius: 20px;
-}</pre>
 
 Vous n&rsquo;avez plus qu&rsquo;à appliquer la classe `.button` à votre lien, et y ajouter les class `.small` `.medium`, `.blue` ou `.arrondi` pour plus de personnalisation
 
 ## Fichiers de démonstration
 
-À vous de jouer maintenant! Vous pouvez télécharger l&rsquo;archive contenant les fichier, ou regarder la démo en ligne en cliquant sur les boutons ci-dessous
-
-<a class="demo_link" title="Démo sur jsFiddle" href="http://jsfiddle.net/nighcrawl/ZvJKK/embedded/result/" target="_blank">Voir la démo</a> <a class="download_link" title="Télécharger les fichiers sur GitHub" href="https://github.com/nighcrawl/demo.chierchia.fr/tree/master/css3buttons" target="_blank">Télécharger les fichiers</a>
+À vous de jouer maintenant! Vous pouvez [voir une démo](https://nighcrawl.github.io/css3-buttons) et [télécharger les sources](https://github.com/nighcrawl/css3-buttons) sur GitHub.
