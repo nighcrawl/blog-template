@@ -32,12 +32,12 @@ Du côté du markup HTML, notre notification se résumera à pas grand chose : u
 
 Pour animer notre notification on aurait pu choisir CSS3 comme l&rsquo;a fait <a title="Pop From Top Notification" href="http://css-tricks.com/13815-pop-from-top-notification/" target="_blank">Chris Coyer</a>, mais je préfère utiliser jQuery pour ne pas pénaliser les navigateurs qui ne prendraient pas en compte les animations CSS, et pour m&rsquo;éviter une belle tartine de définition de style :D. Voilà le Javascript :
 
-    $(document).ready(function(){
-      $(".notify").css('display','none').delay(500).fadeIn(400).delay(5500).fadeOut(400);
-      $(".notify").hover(function(){
-        $(this).stop(true,true).fadeIn();
-      },function(){
-        $(this).stop(true,true).delay(500).fadeIn(400).delay(5500).fadeOut(400);
+    jQuery(document).ready(function($) {
+      $(".notify").css("display","none").delay(1000).fadeIn(400).delay(5500).fadeOut(800);
+      $(".notify").hover(function() {
+          $(this).stop(true, true).fadeIn();
+      }, function() {
+          $(this).stop(true, true).delay(1000).fadeIn(400).delay(5500).fadeOut(800);
       });
     });
 
@@ -48,29 +48,37 @@ Dans le cas où notre notification est survolé par la souris (fonction `hover()
 Passons maintenant à notre feuille de style. Ce qu&rsquo;il est important de noter, c&rsquo;est que notre bloc contenant le message informatif doit être en `position : absolute` afin de le positionner, non pas par rapport à son conteneur mais plutôt par rapport au document HTML lui même.
 
     .notify {
-      position: absolute;
-      top: 8; right: 8px;
-      max-width: 246px;
-      background: rgba(0,0,0,0.7); padding: 25px;
-      font-size: 0.8em; color: #fff;
-      border: 2px solid #222;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #222222;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
       border-radius: 8px;
-      box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+      -moz-box-shadow: 0 3px 5px rbga(0, 0, 0, 0.4);
+      -webkit-box-shadow: 0 3px 5px rbga(0, 0, 0, 0.4);
+      box-shadow: 0 3px 5px rbga(0, 0, 0, 0.4);
+      color: #ffffff;
+      font-size: .8em;
+      max-width: 246px;
+      padding: 25px;
+      position: absolute;
+      right: 8px;
+      top: 8em;
     }
     .notify:hover {
-      border: 2px solid #eee;
+      border: 2px solid #eeeeee;
     }
     .notify p {
-      margin: 0;
       cursor: default;
+      margin: 0;
     }
-
-    .notify span.icon {
+    .notify .icon {
+      background: url("../img/notify_icon.png") no-repeat;
       display: block;
-      width: 40px; height: 40px;
-      background: url(notify_icon.png) no-repeat;
+      height: 40px;
+      left: -30px;
       position: absolute;
-      top: 10px; left: -30px;
+      top: 10px;
+      width: 40px;
     }
 
-<p data-height="265" data-theme-id="0" data-slug-hash="zNBEpq" data-default-tab="css,result" data-user="nighcrawl" data-embed-version="2" data-pen-title="zNBEpq" data-preview="true" class="codepen">See the Pen <a href="http://codepen.io/nighcrawl/pen/zNBEpq/">zNBEpq</a> by Ange Chierchia (<a href="http://codepen.io/nighcrawl">@nighcrawl</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+C'est fini ! Vous pouvez [voir la démo](https://nighcrawl.github.io/growl-notification/) et [télécharger les sources](https://github.com/nighcrawl/growl-notification/) sur GitHub.
