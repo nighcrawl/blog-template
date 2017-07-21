@@ -8,8 +8,8 @@
 
 	input, textarea {
 		border: 1px solid tint($gray, 10%);
-		border-radius: $base-radius;
-		//@include border-radius($base-radius);
+		//border-radius: $base-radius;
+		@include border-radius($base-radius);
 		box-sizing: border-box;
 		//@include box-sizing(border-box);
 		padding: .5em;
@@ -19,8 +19,8 @@
 	[type="submit"] {
 		background-color: $accent-color;
 		border: none;
-		border-radius: $base-radius;
-		//@include border-radius($base-radius);
+		//border-radius: $base-radius;
+		@include border-radius($base-radius);
 		color: tint($light-background, 70%);
 		padding: .5em;
 		text-decoration: none;

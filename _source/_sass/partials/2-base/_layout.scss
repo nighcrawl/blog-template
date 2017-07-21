@@ -5,8 +5,8 @@
 }
 
 .site-header {
-	border-radius: 0 0 $base-radius $base-radius;
-	//@include border-radius(0 0 4px 4px);
+	//border-radius: 0 0 $base-radius $base-radius;
+	@include border-radius(0 0 $base-radius $base-radius);
 	background-color: tint($light-background, 80%);
 	padding: 1em 1.5em;
 	display: flex;
@@ -69,7 +69,7 @@
 
 	a {
 		border-radius: $base-radius;
-		//@include border-radius($base-radius);
+		@include border-radius($base-radius);
 		color: $font-color;
 		padding: .25em .5em;
 		text-decoration: none;
@@ -123,8 +123,8 @@
 }
 
 pre {
-	border-radius: $base-radius;
-	//@include border-radius(3px);
+	//border-radius: $base-radius;
+	@include border-radius($base-radius);
 	background-color: $font-color;
 	color: tint($light-background, 70%);
 	margin-left: -1.5em;
