@@ -23,5 +23,5 @@ group :jekyll_plugins do
 	gem "jekyll-last-modified-at"
 	gem "jekyll-sitemap"
 	gem "jekyll-paginate"
-#	gem "jekyll-admin"
+#    gem "jekyll-webmention_io"
 end

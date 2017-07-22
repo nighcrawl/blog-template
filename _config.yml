@@ -33,6 +33,7 @@ paginate_path: "/blog/page/:num/"
 markdown: kramdown
 gems:
   - jekyll-paginate
+#  - jekyll-webmention_io
 
 exclude:
   - Gemfile
