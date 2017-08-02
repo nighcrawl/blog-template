@@ -35,8 +35,6 @@ webmentions:
     - http://www.angechierchia.com
     - http://blog.angechierchia.com
     - http://chierchia.fr
-  js: false
-
 
 # Build settings
 markdown: kramdown
