@@ -35,6 +35,8 @@ webmentions:
     - http://www.angechierchia.com
     - http://blog.angechierchia.com
     - http://chierchia.fr
+  js:
+    destination: assets/js/vendor
 
 # Build settings
 markdown: kramdown
