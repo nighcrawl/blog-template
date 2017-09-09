@@ -6,6 +6,12 @@
 	border-bottom: 1px solid tint($light-background, 70%);
 	margin-bottom: 1em;
 	padding-bottom: 1em;
+
+    .post-date {
+        color: tint($gray, 10%);
+        font-size: .75em;
+        margin-left: .5em;
+    }
 }
 
 .post-page .share {

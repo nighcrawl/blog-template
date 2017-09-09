@@ -29,20 +29,20 @@ github_username:  nighcrawl
 paginate: 10
 paginate_path: "/blog/page/:num/"
 
-webmentions:
-  username: chierchia.fr
-  legacy_domains:
-    - http://www.angechierchia.com
-    - http://blog.angechierchia.com
-    - http://chierchia.fr
-  js:
-    destination: assets/js/vendor
+#webmentions:
+#  username: chierchia.fr
+#  legacy_domains:
+#    - http://www.angechierchia.com
+#    - http://blog.angechierchia.com
+#    - http://chierchia.fr
+#  js:
+#    destination: assets/js/vendor
 
 # Build settings
 markdown: kramdown
 gems:
   - jekyll-paginate
-  - jekyll-webmention_io
+#  - jekyll-webmention_io
 
 exclude:
   - Gemfile

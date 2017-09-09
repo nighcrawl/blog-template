@@ -2,29 +2,43 @@
 layout: default
 body_class: "post-page"
 sitemap:
-  - changefreq: "weekly"
-  - priority: "1"
+    - changefreq: "weekly"
+    - priority: "1"
 ---
 <div class="post {% if page.format and page.format == "link" and page.link != "" %}post-format--link{% endif %}">
+    {% if page.format and page.format == "link" and page.link != "" %}
+        <a href="{{ page.link }}" class="post-title">{{ page.title }}</a>
+    {% else %}
+        <h1 class="post-title">{{ page.title }}</h1>
+    {% endif %}
 
-  {% if page.format and page.format == "link" and page.link != "" %}
-    <a href="{{ page.link }}" class="post-title">{{ page.title }}</a>
-  {% else %}
-    <h1 class="post-title">{{ page.title }}</h1>
-  {% endif %}
+    {% if page.image and page.image != "" %}
+    <figure class="thumbnail">
+        <img src="{{ page.image }}" alt="{{ page.title }}" />
+    </figure>
+    {% endif %}
 
-  {% if page.image and page.image != "" %}
-  <figure class="thumbnail">
-    <img src="{{ page.image }}" alt="{{ page.title }}" />
-  </figure>
-  {% endif %}
+    {% assign m = page.date | date: "%-m" %}
+    <div class="post-date">Publié le {{ page.date | date: "%d" }} {% case m %}
+        {% when '1' %}janvier
+        {% when '2' %}février
+        {% when '3' %}mars
+        {% when '4' %}avril
+        {% when '5' %}mai
+        {% when '6' %}juin
+        {% when '7' %}juillet
+        {% when '8' %}août
+        {% when '9' %}septembre
+        {% when '10' %}octobre
+        {% when '11' %}novembre
+        {% when '12' %}décembre
+    {% endcase %} {{ page.date | date: "%Y" }}</div>
 
-  {{ content }}
+    {{ content }}
+
 </div>
 
 <ul class="share">
-    <li><a class="share-icon--twitter" href="https://twitter.com/intent/tweet?text={{ page.title | strip_html }}&url={{site.url}}{{ page.url }}&via={{ site.twitter_username }}" target="_blank">Twitter</a></li>
-    <li><a class="share-icon--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{ page.url }}" target="_blank">Facebook</a></li>
+        <li><a class="share-icon--twitter" href="https://twitter.com/intent/tweet?text={{ page.title | strip_html }}&url={{site.url}}{{ page.url }}&via={{ site.twitter_username }}" target="_blank">Twitter</a></li>
+        <li><a class="share-icon--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{ page.url }}" target="_blank">Facebook</a></li>
 </ul>
-
-{% webmentions page.url %}
