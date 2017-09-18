@@ -19,7 +19,7 @@ sitemap:
     {% endif %}
 
     {% assign m = page.date | date: "%-m" %}
-    <div class="post-date">Publié le {{ page.date | date: "%d" }} {% case m %}
+    <time class="post-date" datetime="{{ page.date_to_rfc822 }}">Publié le {{ page.date | date: "%d" }} {% case m %}
         {% when '1' %}janvier
         {% when '2' %}février
         {% when '3' %}mars
@@ -32,7 +32,7 @@ sitemap:
         {% when '10' %}octobre
         {% when '11' %}novembre
         {% when '12' %}décembre
-    {% endcase %} {{ page.date | date: "%Y" }}</div>
+    {% endcase %} {{ page.date | date: "%Y" }}</time>
 
     {{ content }}
 

@@ -16,7 +16,7 @@ body_class: "home-page"
             </figure>
             {% endif %}
             {% assign m = post.date | date: "%-m" %}
-            <div class="post-date">Publié le {{ post.date | date: "%d" }} {% case m %}
+            <time class="post-date" datetime="{{ post.date_to_rfc822 }}">Publié le {{ post.date | date: "%d" }} {% case m %}
                 {% when '1' %}janvier
                 {% when '2' %}février
                 {% when '3' %}mars
@@ -29,7 +29,7 @@ body_class: "home-page"
                 {% when '10' %}octobre
                 {% when '11' %}novembre
                 {% when '12' %}décembre
-            {% endcase %} {{ post.date | date: "%Y" }}</div>
+            {% endcase %} {{ post.date | date: "%Y" }}</time>
             {% if post.format and post.format =="link" and post.link != "" %}
                 <p>{{ post.content }}</p>
             {% else if post.content contains "<!--more-->" %}
