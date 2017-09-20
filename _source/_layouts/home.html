@@ -16,7 +16,7 @@ body_class: "home-page"
             </figure>
             {% endif %}
             {% assign m = post.date | date: "%-m" %}
-            <time class="post-date" datetime="{{ post.date_to_rfc822 }}">Publié le {{ post.date | date: "%d" }} {% case m %}
+            <time class="post-date" datetime="{{ post.date | date_to_rfc822 }}">Publié le {{ post.date | date: "%d" }} {% case m %}
                 {% when '1' %}janvier
                 {% when '2' %}février
                 {% when '3' %}mars
