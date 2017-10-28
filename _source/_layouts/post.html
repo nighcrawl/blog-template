@@ -44,6 +44,7 @@ sitemap:
         <li><a class="share-icon--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{ page.url }}" target="_blank">Facebook</a></li>
 </ul>
 
+{% if jekyll.environment == "production" %}
 <div id="disqus_thread"></div>
 <script>
 /**
@@ -62,3 +63,4 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
