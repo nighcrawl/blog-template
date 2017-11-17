@@ -72,8 +72,8 @@ Voilà le code source complet de notre scraper en Python :
         if browser.is_element_present_by_css('table.commonTable'):
             # Récupère l'URL vers le fichier XML des publications du jour
             xmlfile = browser.find_by_css('table.commonTable')
-                             .find_by_css('tbody')
-                             .find_by_css('a')[3]
+                            .find_by_css('tbody')
+                            .find_by_css('a')[3]
             browser.visit(xmlfile['href'])
             response = browser.html.encode('utf8', 'xmlcharrefreplace')
             # Enregistre le contenu du fichier XML dans un fichier en local
