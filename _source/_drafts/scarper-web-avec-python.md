@@ -17,6 +17,24 @@ Le but du scraper que l'on va écrire ici sera de récupérer les informations c
 
 Pour cela nous allons utiliser la librairie Splinter, qui nous permettra à notre script de parcourir les pages comme si on le faisait nous même. Je vous invite à lire [la documentation de la librairie](http://splinter.readthedocs.io/en/latest/) pour ce qui concerne son installation et les différentes fonctions disponibles.
 
+Nous allons enregistrer le code source de notre scraper dans un fichier `scraper.py` et déclarer que nous voulons utiliser l'encodage `UTF-8` et utiliser la fonction `Browser()`` de la librairie Splinter. Notre fichier débutera alors comme ça :
+
+    # coding: utf8
+    from splinter import browser
+
+Tout ce qui va se passer ensuite sera executer comme si on naviguait vraiment depuis une fenêtre de navigateur Web. On appelle alors la fonction `Browser()` puis on se rend sur le site Web à scraper comme suit :
+
+    with Browser() as browser:
+        url = "https://www.rcsl.lu"
+        browser.visit(url)
+
+Attention, il est important de bien faire attention à l'indentation du code. Ici, si on avait appellé la méthode `visit()` de l'objet `browser` sans l'indenter, ça n'aurait pas fonctionné car `browser` ne serait pas définit.
+On aurait par contre pu écrire ceci :
+
+    browser = Browser()
+    browser.visit(url)
+
+...
 
     # coding: utf8
     from splinter import Browser # importe l'objet Browser de la librairie
