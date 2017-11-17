@@ -15,9 +15,9 @@ Assez parlé d'Ibakus, passons au vif du sujet : la création d'un scraper web.
 ## Création du scraper
 Le but du scraper que l'on va écrire ici sera de récupérer les informations concernant les nouvelles sociétés luxembourgeoises créées. Nous allons donc faire un scraping du [site du RCSL](https://www.rcsl.lu/).
 
-Pour cela nous allons utiliser la librairie Splinter, qui nous permettra à notre script de parcourir les pages comme si on le faisait nous même. Je vous invite à lire [la documentation de la librairie](http://splinter.readthedocs.io/en/latest/) pour ce qui concerne son installation et les différentes fonctions disponibles.
+Pour cela nous allons utiliser la librairie Splinter, qui permettra à notre script de parcourir les pages comme si on le faisait nous même. Je vous invite à lire [la documentation de la librairie](http://splinter.readthedocs.io/en/latest/) pour ce qui concerne son installation et les différentes fonctions disponibles.
 
-Nous allons enregistrer le code source de notre scraper dans un fichier `scraper.py` et déclarer que nous voulons utiliser l'encodage `UTF-8` et utiliser la fonction `Browser()`` de la librairie Splinter. Notre fichier débutera alors comme ça :
+Nous allons enregistrer le code source de notre scraper dans un fichier `scraper.py` en déclarant que nous voulons utiliser l'encodage `UTF-8` et utiliser la fonction `Browser()` de la librairie Splinter. Notre fichier débutera alors comme ça :
 
     # coding: utf8
     from splinter import browser
@@ -35,6 +35,32 @@ On aurait par contre pu écrire ceci :
     browser.visit(url)
 
 ...
+
+Notre scraper se trouve maintenant sur la page d'accueil du site Web du RCSL. Pour récupérer la liste des sociétés consituées aujourd'hui, il faut que l'on clique sur le lien "Journal des publications" que l'on peut trouver au bas de la page. La librairie Splinter dispose de plusieurs fonctions permettant de [retrouver un élément dans le DOM](http://splinter.readthedocs.io/en/latest/finding.html) et d'[intéragir avec](http://splinter.readthedocs.io/en/latest/elements-in-the-page.html). Dans notre cas nous aurons besoin des fonctions `is_element_present_by_css()`, `find_by_css()` et `click_link_by_partial_href()`.
+
+Le lien que l'on cherche à cliquer contient la chaîne `DisplayOfficialJournalAction` dans son attribut `href`, nous allons donc cliquer dessus en faisant appelle à `click_link_by_partial_href()` ce qui nous amènera sur la page voulue :
+
+    browser.click_link_by_partial_href('mjrcs/jsp/DisplayOfficialJournalAction')
+
+Dans cette nouvelle page on veut cliquer sur l'icône de téléchargement du fichier XML le plus récent (en haut de la liste).
+Pour être certain qu'il y a bien une liste de fichiers disponibles présente sur la page, on vérifie qu'un élément `table` ayant la classe `commonTable` existe dans le DOM. Si il existe, on récupère alors le quatrième élément `a` qu'il contient puis on visite l'URL contenue dans son attribut `href`
+
+    if browser.is_element_present_by_css('table.commonTable'):
+        # Récupère l'URL vers le fichier XML des publications du jour
+        xmlfile = browser.find_by_css('table.commonTable')
+                        .find_by_css('tbody')
+                        .find_by_css('a')[3]
+        browser.visit(xmlfile['href'])
+
+On enregistre ensuite le contenu du fichier en local.
+
+    response = browser.html.encode('utf8', 'xmlcharrefreplace')
+    with open('notices.xml', 'w') as fh:
+        fh.write(response)
+
+Une fois le fichier récupéré en local, on peut imaginer un script Python ou PHP qui traiterai le contenu du fichier XML pour l'enregistrer dans une base de données.
+
+Voilà le code source complet de notre scraper en Python :
 
     # coding: utf8
     from splinter import Browser # importe l'objet Browser de la librairie
