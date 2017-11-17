@@ -5,10 +5,10 @@ permalink: /blog/scraper-web-python
 image: /contents/uploads/python.jpg
 tags: web scraping, python
 ---
-Aujourd'hui on va voir comment utiliser Python afin de scraper une page ou un site Web et ainsi se constituer une base de données avec les données qui nous intéresseront.
+Aujourd'hui on va voir comment utiliser Python afin de scraper une page ou un site Web afin de récupérer les informations qui nous intéressent et ainsi se constituer une base de données.
 
-Le scraping de sites Web fait partie de mon quotidien chez Ibakus Europe ces derniers mois, dans le cadre du développement d'une fonctionnalité vraiment pratique pour les utilisateurs de notre application de lutte contre le blanchiment d'argent et le financement du terrorisme.
-Le scraping de différentes sources nous a permit de constituer une base de données des sociétés européennes, permettant à nos utilisateurs de compléter leur fichier KYC avec les informations dont on dispose sur leurs clients, en plus des informations qu'ils ont en leur possession.
+Le scraping de sites Web fait partie de mon quotidien chez Ibakus Europe ces derniers mois, dans le cadre du développement d'une fonctionnalité de notre application dédiée à la lutte contre le blanchiment d'argent et le financement du terrorisme.
+Le scraping de différentes sources nous a permit de constituer une base de données des sociétés européennes, permettant à nos utilisateurs de compléter leur fichier KYC avec les informations publiques dont on dispose sur leurs clients, en plus des informations qu'ils ont en leur possession.
 
 Assez parlé d'Ibakus, passons au vif du sujet : la création d'un scraper web.
 
@@ -33,8 +33,6 @@ On aurait par contre pu écrire ceci :
 
     browser = Browser()
     browser.visit(url)
-
-...
 
 Notre scraper se trouve maintenant sur la page d'accueil du site Web du RCSL. Pour récupérer la liste des sociétés consituées aujourd'hui, il faut que l'on clique sur le lien "Journal des publications" que l'on peut trouver au bas de la page. La librairie Splinter dispose de plusieurs fonctions permettant de [retrouver un élément dans le DOM](http://splinter.readthedocs.io/en/latest/finding.html) et d'[intéragir avec](http://splinter.readthedocs.io/en/latest/elements-in-the-page.html). Dans notre cas nous aurons besoin des fonctions `is_element_present_by_css()`, `find_by_css()` et `click_link_by_partial_href()`.
 
@@ -81,3 +79,5 @@ Voilà le code source complet de notre scraper en Python :
             # Enregistre le contenu du fichier XML dans un fichier en local
             with open('notices.xml', 'w') as fh:
                 fh.write(response)
+
+J'espère que cet article vous aura appris quelque chose et comme toujours, si vous avez des remarques ou des conseils pour l'améliorer, n'hésitez pas à m'en faire part sur Twitter ou dans les commentaires.
