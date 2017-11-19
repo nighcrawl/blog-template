@@ -29,7 +29,7 @@
 }
 
 .share-icon--facebook {
-	@extend %share-icon;
+	@extend %round-icon;
 	@include mask('../img/facebook-icon.svg', cover, 50%, 50%);
 
 	&:hover {
@@ -37,23 +37,10 @@
 	}
 }
 .share-icon--twitter {
-	@extend %share-icon;
+	@extend %round-icon;
 	@include mask('../img/twitter-icon.svg', cover, 50%, 50%);
 
 	&:hover {
 		background-color: $twitter;
 	}
-}
-
-%share-icon {
-	background-color: tint($light-background, 15%);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	display: block;
-	text-indent: -999em;
-	width: 48px;
-	height: 48px;
-	transition: all 200ms ease-in-out;
-	//@include single-transition(all, 200ms, ease-in-out);
 }

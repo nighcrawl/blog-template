@@ -21,7 +21,6 @@
     -moz-border-radius: $radius;
     -webkit-border-radius: $radius;
 }
-
 //
 // Some Useful color Vars via http://clrs.cc/
 //
@@ -41,6 +40,9 @@ $black:  #111;
 $facebook: #3b5998;
 $twitter: #1da1f2;
 
+// rss
+$rssfeed: #ffa500;
+
 //
 // Add whatever variables you would like made available to the whole app
 //
@@ -53,3 +55,17 @@ $font-color: $black;
 $light-background: $silver;
 $accent-color: shade($teal, 15%);
 $base-radius: 3px;
+
+
+%round-icon {
+	background-color: tint($light-background, 15%);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: block;
+	text-indent: -999em;
+	width: 48px;
+	height: 48px;
+	transition: all 200ms ease-in-out;
+	//@include single-transition(all, 200ms, ease-in-out);
+}

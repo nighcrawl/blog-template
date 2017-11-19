@@ -40,8 +40,8 @@ sitemap:
 </div>
 
 <ul class="share">
-        <li><a class="share-icon--twitter" href="https://twitter.com/intent/tweet?text={{ page.title | strip_html }}&url={{site.url}}{{ page.url }}&via={{ site.twitter_username }}" target="_blank">Twitter</a></li>
-        <li><a class="share-icon--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{ page.url }}" target="_blank">Facebook</a></li>
+        <li><a class="share-icon--twitter" href="https://twitter.com/intent/tweet?text={{ page.title | strip_html }}&url={{site.url}}{{ page.url }}&via={{ site.twitter_username }}" target="_blank" title="Partager “{{ page.title | strip_html }}” sur Twitter">Twitter</a></li>
+        <li><a class="share-icon--facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{ page.url }}" target="_blank" title="Partager “{{ page.title | strip_html }}” sur Facebook">Facebook</a></li>
 </ul>
 
 {% if jekyll.environment == "production" %}
