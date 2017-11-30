@@ -1,7 +1,14 @@
 /*
- * Contact page layout
+ * Newsletter form layout
  */
-.contact-form {
+
+.newsletter-form {
+	padding: 0 4em 2em;
+
+	p {
+		margin: 1em 0;
+	}
+
 	label {
 		display: block;
 	}
