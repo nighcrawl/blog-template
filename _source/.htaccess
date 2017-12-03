@@ -189,38 +189,7 @@ ServerSignature Off
 
     # Compress all output labeled with one of the following media types.
     <IfModule mod_filter.c>
-        AddOutputFilterByType DEFLATE "application/atom+xml" \
-                                      "application/javascript" \
-                                      "application/json" \
-                                      "application/ld+json" \
-                                      "application/manifest+json" \
-                                      "application/rdf+xml" \
-                                      "application/rss+xml" \
-                                      "application/schema+json" \
-                                      "application/vnd.geo+json" \
-                                      "application/vnd.ms-fontobject" \
-                                      "application/x-font-ttf" \
-                                      "application/x-javascript" \
-                                      "application/x-web-app-manifest+json" \
-                                      "application/xhtml+xml" \
-                                      "application/xml" \
-                                      "font/eot" \
-                                      "font/opentype" \
-                                      "image/bmp" \
-                                      "image/svg+xml" \
-                                      "image/vnd.microsoft.icon" \
-                                      "image/x-icon" \
-                                      "text/cache-manifest" \
-                                      "text/css" \
-                                      "text/html" \
-                                      "text/javascript" \
-                                      "text/plain" \
-                                      "text/vcard" \
-                                      "text/vnd.rim.location.xloc" \
-                                      "text/vtt" \
-                                      "text/x-component" \
-                                      "text/x-cross-domain-policy" \
-                                      "text/xml"
+        AddOutputFilterByType DEFLATE application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/schema+json application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-javascript application/x-web-app-manifest+json application/xhtml+xml application/xml font/eot font/opentype image/bmp image/svg+xml image/vnd.microsoft.icon image/x-icon text/cache-manifest text/css text/html text/javascript text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy text/xml
     </IfModule>
 
     # Map the following filename extensions to the specified
@@ -261,9 +230,9 @@ FileETag None
   # HTML
     ExpiresByType text/html                             "access plus 0 seconds"
   # JavaScript
-    ExpiresByType application/javascript                "access plus 1 year"
-    ExpiresByType application/x-javascript              "access plus 1 year"
-    ExpiresByType text/javascript                       "access plus 1 year"
+    ExpiresByType application/javascript                "access plus 1 month"
+    ExpiresByType application/x-javascript              "access plus 1 month"
+    ExpiresByType text/javascript                       "access plus 1 month"
   # Manifest files
     ExpiresByType application/manifest+json             "access plus 1 week"
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
